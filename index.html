@@ -7,7 +7,21 @@
   </head>
   <body>
     <script>
-      console.log(LevelGenerator.createLevel(10))
+      level = LevelGenerator.createLevel(500);
+      level = LevelGenerator.snapLevelTopLeft(level);
+
+      level.forEach((tile) => {
+        let elm = document.createElement('div');
+        let width = 25;
+        let height = 25;
+        elm.style.position = 'absolute';
+        elm.style.left = (tile.x * width) + 'px';
+        elm.style.top = (tile.y * height) + 'px';
+        elm.style.width = width + 'px';
+        elm.style.height = height + 'px';
+        elm.style.background = '#8888FF';
+        document.body.appendChild(elm);
+      })
     </script>
   </body>
 </html>
